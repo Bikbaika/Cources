@@ -1,7 +1,9 @@
-from django.conf.urls import url
+from django.urls import path
 from . import views
 
+app_name = 'cources'
+
 urlpatterns = [
-    url(r'^(?P<id>\d+)/$',views.course_detail,name='course_detail'),
-    url(r'^$',views.course_list,name='course_list'),
+    path('<int:id>/',views.course_detail,name='course_detail'),
+    path('',views.course_list,name='course_list'),
 ]

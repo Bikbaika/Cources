@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Course
+from .models import Course, Category
 
 class CourseAdmin(admin.ModelAdmin):
     list_display=['name','slug','price','stock','available','created','updated']
@@ -8,4 +8,8 @@ class CourseAdmin(admin.ModelAdmin):
     prepopulated_fields={'slug':('name',)}
 admin.site.register(Course,CourseAdmin)
 
+class CategoryAdmin(admin.ModelAdmin):
+    list_display=['name','slug']
+    prepopulated_fields={'slug':('name',)}
+admin.site.register(Category,CategoryAdmin)
 # Register your models here.

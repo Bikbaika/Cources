@@ -1,0 +1,34 @@
+{% extends "cources/base.html" %}
+
+{%block title %}
+{% if category %} {{category.name}} {%else%} Курсы {% endif %}
+{% endblock %}
+
+{% block content %}
+<div id = "sidebar">
+    <h3> Категории </h3>
+    <ul>
+        <li {% if not category %} class = "selected" {% endif%}>
+            <a href="{% url "cources:course_list" %}">Все курсы </a>
+        </li>
+        {% for c in categories%}
+        <li {% if category.slug == c.slug%} class = "selected" {% endif%}>
+            <a href="{{c.slug}}">{{c.name}}</a>
+        </li>
+{% endfor %}
+    </ul>
+</div>
+
+<div id ="main" class = "cources-list">
+    <h1> {% if category%} {{category.name}} {%else%} Курсы {% endif %} </h1>
+    {%for course in cources %}
+    <div class = "item">
+        <a href="{% url 'cources:course_detail' course.id %}">
+            <img src = "{ course.image }{course.image.url}">
+        </a>
+        <a href ="{% url 'cources:course_detail' course.id %}"> {{course.name}} </a>
+        <br> {{course.price}}
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
