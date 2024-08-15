@@ -7,6 +7,8 @@ class Category(models.Model):
     
     class Meta:
         ordering = ('name',)
+        verbose_name = 'category'
+        verbose_name_plural = 'categories'
     
     def __str__(self):
         return self.name
@@ -37,7 +39,7 @@ class Course(models.Model):
         return self.name
     
     def get_absolute_url(self):
-        return reverse('cources:course_detail', args=[self.id])
+        return reverse('cources:course_detail', args=[self.id, self.slug])
     
 
 # Create your models here.

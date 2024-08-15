@@ -1,4 +1,5 @@
 {% extends "cources/base.html" %}
+{% load static %}
 
 {%block title %}
 {% if category %} {{category.name}} {%else%} Курсы {% endif %}
@@ -21,13 +22,14 @@
 
 <div id ="main" class = "cources-list">
     <h1> {% if category%} {{category.name}} {%else%} Курсы {% endif %} </h1>
-    {%for course in cources %}
+    {%for course in courses %}
     <div class = "item">
         <a href="{{course.get_absolute_url}}">
-            <img src="{{ course.image.url }}">
+            <img src="{% if course.image %}{{ course.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}">
         </a>
         <a href ="{{course.get_absolute_url}}"> {{course.name}} </a>
-        <br> {{course.price}}
+        <br> 
+        {{course.price}}
     </div>
     {% endfor %}
 </div>
