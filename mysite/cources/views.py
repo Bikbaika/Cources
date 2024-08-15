@@ -21,3 +21,7 @@ def course_detail(request, id):
                   'cources/course/detail.html',
                   {'course':course})
 # Create your views here.
+
+def course_list_by_category(request, slug = None):
+    return render(request,
+                 'cources/course/course_list_by_category.html' )
