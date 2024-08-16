@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Playfair+Display');
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lobster&family=Pacifico&family=Playfair+Display');
+body {
+    background: #e25ce7bf;
+    margin:0;
+    padding:0;
+    font-family:"Playfair Display", serif;
+    font-style: normal;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family:"Great Vibes", cursive;
+    font-style: normal;
+}
+
+a{
+    text-decoration: none;
+    color:#a4b3b6;
+}
+
+a:hover{
+    color:#d83f87;
+}
+
+#header{
+    padding: 10px 100px;
+    font-size: 18px;
+    overflow: auto;
+    
+
+}
+#header a{
+    color:#2a1b3d;
+}
+
+#subheader{
+    background:#2a1b3d;
+    color:#a4b3b6;
+    padding: 15px 100px;
+    overflow: auto;
+}
+
+#header .logo{
+    font-family: "Pacifico", cursive;
+    font-weight: 500;
+    float: left;
+    font-size: 22px;
+    margin-right: 10%;
+}
+
+#sidebar{
+    width: 220px;
+    padding: 30px 20px 0 0;
+    float: left;
+}
+
+#sidebar ul{
+    margin: 0;
+    padding: 0;
+}
+
+#sidebar ul li{
+    margin: 0;
+    list-style: none;
+    padding: 10px 14px;
+}
+
+#main{
+    float: left;
+    width: 96%;
+    margin-right: -220px;
+    overflow: hidden;
+}
+
+.cources-list .item{
+    width: 25%;
+    padding: 10px 20px 10px 0;
+    float: left;
+    text-align: center;
+}
+
+.cources-list .item img{
+width: 100%;
+margin-bottom: 8px;
+}

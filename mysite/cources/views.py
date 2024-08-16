@@ -14,8 +14,8 @@ def course_list(request, category_slug = None):
                    'category':category,
                    'categories':categories})
 
-def course_detail(request, id):
-    course = get_object_or_404(Course, id=id, available = True)
+def course_detail(request, id, slug):
+    course = get_object_or_404(Course, id=id, slug= slug, available = True)
 
     return render(request,
                   'cources/course/detail.html',
