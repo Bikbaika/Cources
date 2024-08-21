@@ -84,3 +84,16 @@ a:hover{
 width: 100%;
 margin-bottom: 8px;
 }
+
+.course-detail .price{
+    color:#d83f87;
+    font-size:28px;
+    font-weight:bold;
+}
+
+.course-detail img{
+    width: 40%;
+    float: left;
+    padding: 0 20px 20px 0;
+}
+

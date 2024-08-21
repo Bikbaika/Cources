@@ -1,7 +1,7 @@
 from django.shortcuts import get_object_or_404, redirect, render
 from django.views.decorators.http import require_POST
-from mysite.cart.cart import Cart
-from mysite.cources.models import Course
+from .cart import Cart
+from cources.models import Course
 from .forms import CartAddCourseForm
 
 @require_POST

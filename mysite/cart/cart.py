@@ -18,7 +18,7 @@ class Cart:
         if override_quantity:
             self.cart[course_id]['quantity']=quantity
         else:
-            self.cart[course_id][quantity]+=quantity
+            self.cart[course_id]['quantity']+=quantity
         self.save()
 
     def save(self):
@@ -45,7 +45,7 @@ class Cart:
         return sum(item['quantity'] for item in self.cart.values())
 
     def get_total_price(self):
-        return sum(Decimal(item['price']*item['quantity'] for item in self.cart.values()))
+        return sum(Decimal(Decimal(item['price'])*Decimal(item['quantity']) for item in self.cart.values()))
     
 
     def clear(self):

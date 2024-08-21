@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Course, Category
+from cart.forms import CartAddCourseForm
 
 def course_list(request, category_slug = None):
     category = None
@@ -17,9 +18,11 @@ def course_list(request, category_slug = None):
 def course_detail(request, id, slug):
     course = get_object_or_404(Course, id=id, slug= slug, available = True)
 
+    cart_course_form = CartAddCourseForm()
     return render(request,
                   'cources/course/detail.html',
-                  {'course':course})
+                  {'course':course,
+                   'cart_course_form':cart_course_form})
 # Create your views here.
 
 

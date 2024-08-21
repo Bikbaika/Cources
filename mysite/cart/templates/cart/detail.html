@@ -1,0 +1,50 @@
+{% extends "cources/base.html" %}
+{% load static %}
+{%block title %}
+Корзина
+{% endblock %}
+
+{% block content %}
+<h1> Ваша корзина </h1>
+<table class="cart">
+    <thead>
+        <tr>
+           <th>Изображение</th>
+           <th>Курс</th>
+           <th>Количество</th>
+           <th>Удалить</th>
+           <th>Цена</th>
+           <th>Стоимость</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in cart%}
+        {% with course=item.course%}
+        <tr>
+            <td>
+                <a href="{{course.get_absolute_url}}">
+                    <img src="{% if course.image %}{{course.image.url}} {% else %} {% static "img/no_image.png" %} {% endif %}">
+                </a>
+            </td>
+            <td> {{course.name}} </td>
+            <td> {{item.quantity}} </td>
+            <td>
+                <form action="{% url "cart:cart_remove" course.id %}" method="post">
+                    <input type="submit" value="Удалить">
+                    {% csrf_token %}
+                </form>
+            </td>
+            <td class="num"> {{item.price}} </td>
+            <td class="num"> {{item.total_price}}</td>
+        </tr>
+    {% endwith%}
+    {% endfor%}
+    <tr class = "total">
+        <td> Общая сумма </td>
+        <td class="num">{{cart.get_total_price}}</td>
+    </tr> 
+</tbody>
+</table>
+<p class="text-right">
+    <a href="{% url "cources:course_list" %}"> Продолжить покупки </a>   
+{% endblock %}
