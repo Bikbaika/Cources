@@ -1,0 +1,23 @@
+{% extends "cources/base.html" %}
+{% block title %} Ваш заказ {% endblock %}
+
+{% block content%}
+<h1> Заказ </h1>
+<div class="order-info">
+    <h3> Ващ заказ </h3>
+    <ul>
+        {%for item in cart%}
+        <li>
+            {{item.quantity}}x{{item.course.name}}
+            <span> {{item.total_price}} руб</span>
+        </li>
+        {% endfor %}
+    </ul>
+    <p> Итого: {{ cart.get_total_price}} руб </p>
+</div>
+<form method="post" class="order-form">
+    {{form.as_p}}
+    <p><input type="submit" value = "Отправить заказ"> </p>
+    {% csrf_token %}
+</form>
+{% endblock %}

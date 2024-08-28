@@ -22,7 +22,7 @@
             {{total_items}} курсов 
             {{cart.get_total_price}} руб
         </a>
-        {% else %}
+        {% elif not order %}
         Ваша корзина пуста
         {% endif %}
         {% endwith %}
